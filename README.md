@@ -1,3 +1,2 @@
 Teting
 new line
-.
