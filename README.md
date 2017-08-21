@@ -1,2 +1,3 @@
-Teting
-new line
+Conflicts solved
+=======
+Edit file
