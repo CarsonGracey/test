@@ -1,8 +1,5 @@
 boom
 
-=======
-Conflicts solved
-=======
-Edit file
+Conflicts solved 2.0
 
 bang
