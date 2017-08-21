@@ -1,1 +1,3 @@
+Conflicts solved
+=======
 Edit file
