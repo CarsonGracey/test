@@ -1,3 +1,22 @@
-ye
-ey
-ye
+ function graph_new_data(stream) {
+ 
+     // Check for a failed connection:
+     if (stream.indexOf('ailed') > -1) {
+         $("#serial_graphing").html(stream);
+ 
+     } else {
+         for (k = 0; k < stream.length; k++) {
+             if (stream[k] === '\n')
+                 stream[k] = '\r';
+             if (stream[k] === '\r' && graph_data_ready) {
+                 graph_temp_data.push(graph_temp_string.split(','));
+                 var row = graph_temp_data.length - 1;
+                 var ts = Number(graph_temp_data[row][0]) || 0;
+                 ts = ts / 1220.703125; // convert to seconds - Propeller system clock left shifted by 16;
+                 if (!graph_timestamp_start)
+                     graph_timestamp_start = ts;
+                 if (row > 0) {
+                     if (parseFloat(graph_temp_data[row][0]) < parseFloat(graph_temp_data[row - 1][1])) {
+                         graph_time_multiplier += fullCycleTime;
+                     }
+                 }
